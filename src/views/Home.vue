@@ -16,6 +16,19 @@
 
 export default {
     name: "home",
+    mounted: function () {
+        var that = this
+        this.$ajax
+            .post(
+                "http://skill.hahahah.me/logStatus/user/isLogin.do"
+            )
+            .then(function(response) {
+                console.log(response)
+                if(response.data.status == 10){
+                    that.$router.push('/login')
+                }    
+            })
+    },
     methods: {
         submitStatus: function(val) {
             var that = this

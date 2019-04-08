@@ -4,7 +4,7 @@
             <el-col :span="4">
                 <el-menu
                     default-active="/"
-                    router=true
+                    :router= "true"
                 >
                     <el-menu-item index="/">
                         <i class="el-icon-menu"></i>
