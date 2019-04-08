@@ -1,17 +1,31 @@
 <template>
     <div id="login">
         <h1>用户登录</h1>
-        <el-input v-model="input" placeholder="请输入内容"></el-input>
-        <el-input placeholder="请输入密码" v-model="password" show-password></el-input>
-        <el-button type="success" @click="login">登录</el-button>
+        <el-form ref="form" :model="form" label-width="80px">
+            <el-form-item label="用户名">
+                <el-input v-model="form.input" placeholder="请输入内容"></el-input>
+            </el-form-item>
+            <el-form-item label="密码">
+                <el-input placeholder="请输入密码" v-model="form.password" show-password></el-input>
+            </el-form-item>
+            <el-form-item>
+                <el-button type="primary" @click="login">登录</el-button>
+            </el-form-item>
+        </el-form>
+        
+        
+        
     </div>
 </template>
 <script>
 export default {
     data() {
         return {
-            input: '',
-            password: ''
+            form: {
+                input: '',
+                password: ''
+            }
+           
         }
     },
     methods: {
@@ -47,7 +61,8 @@ export default {
 </script>
 <style>
     #login {
-        text-align: center;
+        width: 990px;
+        margin: 0 auto;
     }
 </style>
 

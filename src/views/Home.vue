@@ -1,12 +1,23 @@
 <template>
     <div class="home">
-        <h3>状态管理</h3>
-        <el-button @click="submitStatus('1')">睡觉</el-button>
-        <el-button @click="submitStatus('2')">写代码</el-button>
-        <el-button @click="submitStatus('3')">吃饭</el-button>
-        <el-button @click="submitStatus('4')">起床</el-button>
-        <el-button @click="submitStatus('5')">上班</el-button>
-        <el-button @click="submitStatus('6')">下班</el-button>
+        <el-row>
+            <el-col :span="4">
+                <el-menu
+                    default-active="/"
+                    :router="true"
+                >
+                    <el-menu-item index="/">
+                        <i class="el-icon-menu"></i>
+                        <span slot="title">首页</span>
+                    </el-menu-item>
+                    <el-menu-item index="about">
+                        <i class="el-icon-document"></i>
+                        <span slot="title">关于</span>
+                    </el-menu-item>
+                </el-menu>
+            </el-col>
+        </el-row>
+        <router-view />
     </div>
 </template>
 
@@ -16,22 +27,20 @@
 
 export default {
     name: "home",
-    mounted: function () {
-        var that = this
+    mounted: function() {
+        var that = this;
         this.$ajax
-            .post(
-                "http://skill.hahahah.me/logStatus/user/isLogin.do"
-            )
+            .post("http://skill.hahahah.me/logStatus/user/isLogin.do")
             .then(function(response) {
-                console.log(response)
-                if(response.data.status == 10){
-                    that.$router.push('/login')
-                }    
-            })
+                console.log(response);
+                if (response.data.status == 10) {
+                    that.$router.push("/login");
+                }
+            });
     },
     methods: {
         submitStatus: function(val) {
-            var that = this
+            var that = this;
             this.$ajax
                 .post(
                     "http://skill.hahahah.me/logStatus/basic/add.do",
@@ -40,12 +49,11 @@ export default {
                 .then(function(response) {
                     console.log(response);
                     if (response.data.status == 0) {
-                        console.log(response.data.msg)
+                        console.log(response.data.msg);
                         that.$message({
                             message: response.data.msg,
-                            type: 'success'
-                            })
-
+                            type: "success"
+                        });
                     }
                 });
         }
