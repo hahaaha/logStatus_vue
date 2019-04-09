@@ -32,7 +32,6 @@ export default {
         this.$ajax
             .post("http://skill.hahahah.me/logStatus/user/isLogin.do")
             .then(function(response) {
-                console.log(response);
                 if (response.data.status == 10) {
                     that.$router.push("/login");
                 }
@@ -47,9 +46,7 @@ export default {
                     this.$qs.stringify({ status: val })
                 )
                 .then(function(response) {
-                    console.log(response);
                     if (response.data.status == 0) {
-                        console.log(response.data.msg);
                         that.$message({
                             message: response.data.msg,
                             type: "success"

@@ -40,7 +40,6 @@ export default {
                     })
                 )
                 .then(function(response) {
-                    console.log(response) 
                     if(response.data.status == 0){ 
                         that.$message({
                             message: response.data.msg,
