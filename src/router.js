@@ -15,7 +15,12 @@ export default new Router({
       children: [{
         path: '',
         component: Status
-      }]
+      },
+      {
+        path: 'list',
+        component: () => import('./components/List.vue')
+      }
+    ]
     },
     {
       path: '/login',

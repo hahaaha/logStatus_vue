@@ -9,3 +9,9 @@
         <el-button @click="submitStatus('6')">下班</el-button>
     </div>
 </template>
+<style>
+    #status{
+        text-align: center;
+    }
+</style>
+

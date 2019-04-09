@@ -16,8 +16,10 @@
                     </el-menu-item>
                 </el-menu>
             </el-col>
+                <el-col :span="20">
+            <router-view />
+        </el-col>
         </el-row>
-        <router-view />
     </div>
 </template>
 
