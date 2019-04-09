@@ -35,8 +35,8 @@ export default {
                 .post(
                     "http://skill.hahahah.me/logStatus/user/login.do",
                     this.$qs.stringify({
-                        userName:this.input,
-                        password:this.password
+                        userName:this.form.input,
+                        password:this.form.password
                     })
                 )
                 .then(function(response) {
