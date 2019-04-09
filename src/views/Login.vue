@@ -30,7 +30,6 @@ export default {
     },
     methods: {
         login: function () {
-            console.log(this.form.input)
             var that = this
             this.$ajax
                 .post(
