@@ -10,6 +10,10 @@
                         <i class="el-icon-menu"></i>
                         <span slot="title">首页</span>
                     </el-menu-item>
+                    <el-menu-item index="list">
+                        <i class="el-icon-tickets"></i>
+                        <span slot="title">记录列表</span>
+                    </el-menu-item>
                     <el-menu-item index="about">
                         <i class="el-icon-document"></i>
                         <span slot="title">关于</span>
@@ -28,7 +32,6 @@
 // import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
-    name: "home",
     mounted: function() {
         var that = this;
         this.$ajax
@@ -37,25 +40,7 @@ export default {
                 if (response.data.status == 10) {
                     that.$router.push("/login");
                 }
-            });
-    },
-    methods: {
-        submitStatus: function(val) {
-            var that = this;
-            this.$ajax
-                .post(
-                    "http://skill.hahahah.me/logStatus/basic/add.do",
-                    this.$qs.stringify({ status: val })
-                )
-                .then(function(response) {
-                    if (response.data.status == 0) {
-                        that.$message({
-                            message: response.data.msg,
-                            type: "success"
-                        });
-                    }
-                });
-        }
+            })
     }
 };
 </script>

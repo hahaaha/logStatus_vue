@@ -19,6 +19,13 @@ export default new Router({
       {
         path: 'list',
         component: () => import('./components/List.vue')
+      },
+      {
+        path: '/about',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
       }
     ]
     },
@@ -26,14 +33,6 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: () => import ('./views/Login.vue')
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
     }
   ]
 })
