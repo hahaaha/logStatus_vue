@@ -1,8 +1,9 @@
 <template>
-    <div class="home">
+    <div id="home">
         <el-row>
-            <el-col :span="4">
+            <el-col :span="4" class="one">
                 <el-menu
+                     class="tab"
                     default-active="/"
                     :router="true"
                 >
@@ -44,3 +45,4 @@ export default {
     }
 };
 </script>
+

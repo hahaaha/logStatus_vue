@@ -25,7 +25,18 @@ export default {
                             message: response.data.msg,
                             type: "success"
                         });
+                    } else {
+                        that.$message({
+                            message: response.data.msg,
+                            type: "error"
+                        })
                     }
+                })
+                .catch(function() {
+                    that.$message({
+                        message: "系统错误，请稍后再试",
+                        type: "error"
+                    })
                 })
         }
     }

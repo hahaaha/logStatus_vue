@@ -6,7 +6,7 @@
       <el-table-column prop="status" label="状态"></el-table-column>
       <el-table-column prop="createTime" label="日期"></el-table-column>
     </el-table>
-    <el-pagination layout="prev,pager,next" :total="page.total" :page-size="page.pageSize" @prev-click="changePageNum" @next-click="changePageNum"></el-pagination>
+    <el-pagination layout="prev,pager,next" :total="page.total" :page-size="page.pageSize" @prev-click="changePageNum" @next-click="changePageNum" @current-change="changePageNum"></el-pagination>
   </div>
 </template>
 
@@ -62,6 +62,10 @@ export default {
 };
 </script>
 <style>
+#list{
+  width: 90%;
+  margin: 0 auto;
+}
 #list h1 {
   text-align: center;
 }
