@@ -28,17 +28,14 @@ export default {
           for (let i = 0; i < list.length; i++) {
             list[i].createTime = new Date(list[i].createTime).toLocaleString();
           }
-          console.log(response.data.data);
           that.page.total = response.data.data.total;
           that.page.pageSize = response.data.data.pageSize;
-          console.log(list);
           that.tableData = list;
         }
       });
   },
   methods: {
     changePageNum: function(num) {
-        console.log(num)
       var that = this;
       this.$ajax
         .post("http://skill.hahahah.me/logStatus/basic/list.do", this.$qs.stringify({ pageNum: num,pageSize: 10 }))
@@ -50,10 +47,8 @@ export default {
                 list[i].createTime
               ).toLocaleString();
             }
-            console.log(response.data.data);
             that.page.total = response.data.data.total;
             that.page.pageSize = response.data.data.pageSize;
-            console.log(list)
             that.tableData = list 
           }
         });
